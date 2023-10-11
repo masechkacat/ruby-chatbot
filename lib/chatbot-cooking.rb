@@ -13,15 +13,15 @@ headers = {
 }
 
 data = {
-  "prompt" => "5 goûts de glace",
-  "max_tokens" => 50,
+  "prompt" => "recette de cuisine simple",
+  "max_tokens" => 150,
   "n" => 5,
-  "temperature" => 0.1
+  "temperature" => 0.5
 }
 
 response = HTTP.post(url, headers: headers, body: data.to_json)
 response_body = JSON.parse(response.body.to_s)
 response_string = response_body['choices'][0]['text'].strip
 
-puts "Voici 5 parfums de glace :"
+puts "Hello, voici 1 recette de cuisine aléatoire :"
 puts response_string
